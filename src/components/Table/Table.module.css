@@ -1,0 +1,45 @@
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    direction: rtl;
+    min-width: 400px;
+    table-layout: fixed;
+  }
+  
+  .styled-table-col-1 {
+    width: 30px;
+  }
+  
+  .styled-table-col-2 {
+    padding: 10px 10px;
+    text-align: start;
+  }
+  
+  .styled-table-col-3 {
+    width: 30px;
+  }
+  
+  .styled-table-header {
+    font-size: 1.2em;
+  }
+  
+  @media print {
+    .styled-table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.8em;
+      direction: rtl;
+      min-width: 400px;
+      table-layout: fixed;
+    }
+    
+  }

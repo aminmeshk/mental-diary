@@ -1,28 +1,29 @@
-import { useCallback, useEffect, useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useCallback, useEffect, useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { DiaryViewer } from "./screens";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [foxUrl, setFoxUrl] = useState('');
+  const [count, setCount] = useState(0);
+  const [foxUrl, setFoxUrl] = useState("");
   const fetchFoxUrl = useCallback(async () => {
     try {
-      const res = await fetch('https://randomfox.ca/floof/');
+      const res = await fetch("https://randomfox.ca/floof/");
       const imgUrl = (await res.json()).image;
       console.log(imgUrl);
       setFoxUrl(imgUrl as string);
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   }, []);
 
   useEffect(() => {
-    fetchFoxUrl();
+    // fetchFoxUrl();
   }, [fetchFoxUrl]);
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={foxUrl} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
@@ -42,7 +43,7 @@ function App() {
           >
             Learn React
           </a>
-          {' | '}
+          {" | "}
           <a
             className="App-link"
             href="https://vitejs.dev/guide/features.html"
@@ -52,9 +53,10 @@ function App() {
             Vite Docs
           </a>
         </p>
-      </header>
+      </header> */}
+      <DiaryViewer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
