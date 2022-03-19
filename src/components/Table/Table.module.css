@@ -15,26 +15,25 @@
   flex: 1;
 }
 
-.styled-table-col-1 {
-  max-width: 30px;
+.table-row {
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding-top: 10px;
-}
-
-.styled-table-col-2 {
-  padding: 10px 10px;
-  text-align: start;
+  flex-direction: row;
   width: 100%;
 }
 
-.styled-table-col-3 {
+.styled-table-col-min {
   max-width: 30px;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  padding-top: 10px;
+  padding: 10px 5px;
+}
+
+.styled-table-col-big {
+  padding: 10px 5px;
+  text-align: start;
+  /* width: 100%; */
+  flex: 1;
 }
 
 .styled-table-header {
@@ -43,19 +42,30 @@
 
 .input {
   background-color: transparent;
-  border: 2px solid transparent;
+  border: none;
   border-radius: 6px;
-  font-family: "IRANSans";
+  outline: transparent solid 2px;
+  font-family: 'IRANSans';
   margin: 0px;
   color: white;
 }
 
 .input:hover {
-  border: 2px solid #ffffff33;
+  outline: #ffffff33 solid 2px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .input:focus {
-  border: 2px solid white;
+  outline: #ffffff66 solid 2px;
+}
+
+.input-new {
+  composes: input;
+  outline: #ffffff33 solid 1px;
+}
+
+.input-new:hover {
+  outline: #ffffff66 solid 2px;
 }
 
 .input-time {
@@ -79,6 +89,11 @@
   direction: ltr;
 }
 
+.print-helper {
+  composes: input;
+  display: none;
+}
+
 @media print {
   .styled-table {
     border-collapse: collapse;
@@ -87,5 +102,22 @@
     direction: rtl;
     min-width: 400px;
     table-layout: fixed;
+  }
+  .input {
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-family: 'IRANSans';
+    margin: 0px;
+    color: black;
+  }
+  .input-description {
+    display: none;
+  }
+  .print-helper {
+    display: block;
+    overflow: visible;
+    white-space: pre;
+    white-space: pre-wrap;
   }
 }

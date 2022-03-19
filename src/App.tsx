@@ -1,19 +1,19 @@
-import { useCallback, useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { DiaryViewer } from "./screens";
+import React, { useCallback, useEffect, useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { DiaryViewer } from './screens';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [foxUrl, setFoxUrl] = useState("");
+  const [foxUrl, setFoxUrl] = useState('');
   const fetchFoxUrl = useCallback(async () => {
     try {
-      const res = await fetch("https://randomfox.ca/floof/");
+      const res = await fetch('https://randomfox.ca/floof/');
       const imgUrl = (await res.json()).image;
       console.log(imgUrl);
       setFoxUrl(imgUrl as string);
     } catch (error) {
-      console.log("error", error);
+      console.log('error', error);
     }
   }, []);
 

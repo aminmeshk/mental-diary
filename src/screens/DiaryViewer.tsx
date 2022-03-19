@@ -1,7 +1,9 @@
-import React from "react";
-import { Table } from "../components";
+import React from 'react';
+import { Table } from '../components';
 
-const DiaryViewerScreen = () => {
+type Props = {};
+
+const DiaryViewerScreen: React.FC<Props> = () => {
   return (
     <div className="table-container">
       <Table />
