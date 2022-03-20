@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { DiaryItem } from '../../models';
 import { englishDigitsToPersian, persianDigitsToEnglish } from '../../utils';
-import Input from '../Input/Input';
-import TextArea from '../TextArea/TextArea';
+import { Input } from '../Input';
+import { TextArea } from '../TextArea';
 import styles from './Table.module.css';
 
 type Props = {
@@ -21,12 +21,12 @@ const EditableRow: React.FC<Props> = ({ value: initialValue, onUpdate }) => {
       }));
       onUpdate(item);
     },
-    [item]
+    [item, onUpdate]
   );
 
   return (
-    <tr className={styles.tableRow}>
-      <td className={styles.styledTableColMin}>
+    <tr className={styles.row}>
+      <td className={styles.colMin}>
         <Input
           value={englishDigitsToPersian(item.timestamp)}
           onUpdate={(v) =>
@@ -35,7 +35,7 @@ const EditableRow: React.FC<Props> = ({ value: initialValue, onUpdate }) => {
           className={styles.inputTime}
         />
       </td>
-      <td className={styles.styledTableColBig}>
+      <td className={styles.colBig}>
         <TextArea
           value={item.description}
           onUpdate={(v) => updateItemProperty('description', v)}
@@ -44,7 +44,7 @@ const EditableRow: React.FC<Props> = ({ value: initialValue, onUpdate }) => {
         />
         <div className={styles.printHelper}>{item.description}</div>
       </td>
-      <td className={styles.styledTableColMin}>
+      <td className={styles.colMin}>
         <Input
           value={englishDigitsToPersian(item.pleasure.toString())}
           onUpdate={(v) =>
@@ -56,7 +56,7 @@ const EditableRow: React.FC<Props> = ({ value: initialValue, onUpdate }) => {
           className={styles.inputPleasure}
         />
       </td>
-      <td className={styles.styledTableColMin}>
+      <td className={styles.colMin}>
         <Input
           value={englishDigitsToPersian(item.skill.toString())}
           onUpdate={(v) =>

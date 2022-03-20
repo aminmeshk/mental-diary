@@ -1,24 +1,61 @@
 {
   "name": "mental-diary",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
     "react-textarea-autosize": "^8.3.3",
-    "use-keyboard-shortcut": "^1.1.4"
+    "use-keyboard-shortcut": "^1.1.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "web-vitals": "^2.1.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
-    "@vitejs/plugin-react": "^1.0.7",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
     "prettier": "^2.6.0",
-    "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "typescript": "^4.5.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "no-shadow": "off",
+          "@typescript-eslint/no-shadow": [
+            "error"
+          ]
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

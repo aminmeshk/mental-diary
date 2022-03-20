@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import useKeyboardShortcut from 'use-keyboard-shortcut';
 import { DiaryItem } from '../../models';
 import { englishDigitsToPersian, persianDigitsToEnglish } from '../../utils';
 import Input from '../Input/Input';
-import TextArea from '../TextArea/TextArea';
+import { TextArea } from '../TextArea';
 import styles from './Table.module.css';
 
 type Props = {
@@ -52,7 +52,7 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
     timeRef.current?.focus();
   }, [onAdd]);
 
-  const {} = useKeyboardShortcut(
+  useKeyboardShortcut(
     ['Meta', 'Enter'],
     () => {
       submit();
@@ -64,7 +64,7 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
     }
   );
 
-  const {} = useKeyboardShortcut(
+  useKeyboardShortcut(
     ['Tab'],
     () => {
       if (document.activeElement === skillRef.current) {
@@ -80,8 +80,8 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
   );
 
   return (
-    <tr className={styles.tableRow}>
-      <td className={styles.styledTableColMin}>
+    <tr className={styles.row}>
+      <td className={styles.colMin}>
         <Input
           className={`${styles.inputTime} ${styles.inputNew}`}
           value={englishDigitsToPersian(newItem.timestamp)}
@@ -91,7 +91,7 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           ref={timeRef}
         />
       </td>
-      <td className={styles.styledTableColBig}>
+      <td className={styles.colBig}>
         <TextArea
           className={`${styles.inputDescription} ${styles.inputNew}`}
           spellCheck="false"
@@ -100,7 +100,7 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           ref={desRef}
         />
       </td>
-      <td className={styles.styledTableColMin}>
+      <td className={styles.colMin}>
         <Input
           className={`${styles.inputPleasure} ${styles.inputNew}`}
           value={englishDigitsToPersian(newItem.pleasure.toString())}
@@ -113,7 +113,7 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           ref={pleasureRef}
         />
       </td>
-      <td className={styles.styledTableColMin}>
+      <td className={styles.colMin}>
         <Input
           className={`${styles.inputPleasure} ${styles.inputNew}`}
           value={englishDigitsToPersian(newItem.skill.toString())}

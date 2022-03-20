@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import useKeyboardShortcut from 'use-keyboard-shortcut';
+import React, { useCallback, useState } from 'react';
 import { DiaryItem } from '../../models';
 import styles from './Table.module.css';
 import NewRow from './NewRow';
@@ -53,6 +52,7 @@ const Table: React.FC<Props> = () => {
     });
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const save = useCallback((theData) => {
     localStorage.setItem('data', JSON.stringify(theData));
     console.log('saved');
@@ -64,26 +64,26 @@ const Table: React.FC<Props> = () => {
   }, []);
 
   return (
-    <table className={styles.styledTable}>
+    <table className={styles.table}>
       <thead>
-        <tr className={styles.tableRow}>
+        <tr className={styles.row}>
           <th
-            className={`${styles.styledTableColMin} ${styles.styledTableHeader}`}
+            className={`${styles.colMin} ${styles.header}`}
           >
             زمان
           </th>
           <th
-            className={`${styles.styledTableColBig} ${styles.styledTableHeader}`}
+            className={`${styles.colBig} ${styles.header}`}
           >
             توضیحات
           </th>
           <th
-            className={`${styles.styledTableColMin} ${styles.styledTableHeader}`}
+            className={`${styles.colMin} ${styles.header}`}
           >
             لذت
           </th>
           <th
-            className={`${styles.styledTableColMin} ${styles.styledTableHeader}`}
+            className={`${styles.colMin} ${styles.header}`}
           >
             تسلط
           </th>
