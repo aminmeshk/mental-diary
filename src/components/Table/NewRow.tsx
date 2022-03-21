@@ -80,8 +80,8 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
   );
 
   return (
-    <tr className={styles.row}>
-      <td className={styles.colMin}>
+    <div className={styles.row}>
+      <div className={styles.colMin}>
         <Input
           className={`${styles.inputTime} ${styles.inputNew}`}
           value={englishDigitsToPersian(newItem.timestamp)}
@@ -90,8 +90,8 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           }
           ref={timeRef}
         />
-      </td>
-      <td className={styles.colBig}>
+      </div>
+      <div className={styles.colBig}>
         <TextArea
           className={`${styles.inputDescription} ${styles.inputNew}`}
           spellCheck="false"
@@ -99,8 +99,8 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           onUpdate={(v) => setNewItem((p) => ({ ...p, description: v }))}
           ref={desRef}
         />
-      </td>
-      <td className={styles.colMin}>
+      </div>
+      <div className={styles.colMin}>
         <Input
           className={`${styles.inputPleasure} ${styles.inputNew}`}
           value={englishDigitsToPersian(newItem.pleasure.toString())}
@@ -112,8 +112,8 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           }
           ref={pleasureRef}
         />
-      </td>
-      <td className={styles.colMin}>
+      </div>
+      <div className={styles.colMin}>
         <Input
           className={`${styles.inputPleasure} ${styles.inputNew}`}
           value={englishDigitsToPersian(newItem.skill.toString())}
@@ -125,8 +125,8 @@ const NewRow: React.FC<Props> = ({ onAdd }) => {
           }
           ref={skillRef}
         />
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 };
 
